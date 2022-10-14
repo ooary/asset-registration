@@ -8,7 +8,7 @@
     <h1 align="CENTER">Asset Registration PT Pertamina Retail</h1>
   </div>
   <hr>
-  <form class="form-horizontal" ref="asset_form">
+  <form class="form-horizontal" ref="form_asset">
     
     <div class="work-experiences">
       <div class="row">
@@ -329,7 +329,7 @@ export default {
       })
        // alert(JSON.stringify(data, null, 2))
        alert("Data Sudah Sukses terinput ! Terima Kasih")
-       this.$refs.form_asset.reset();
+         window.location.reload();
 
     },
     getData(apiUrl) {
