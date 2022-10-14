@@ -76,7 +76,12 @@
       <h3>
       Data IT Asset / Devices {{ unit_business }}
       </h3>
-      <small id="emailHelp" class="form-text text-muted">Format Pengisian <strong>Delivery Date dan Expired Date : Bulan - Tahun ( 05-2022 ) </strong></small>
+      <small id="emailHelp" class="form-text text-muted"><strong> Format Pengisian</strong> <br>
+
+      <strong>Delivery Date dan Expired Date :</strong> Bulan - Tahun ( 05-2022 ) 
+      <br> <strong>Status Kepemilikan Managed Services : </strong> Secara Perangkat tidak sewa, Pelayanannya yang PTPR Sewa Contoh  : Modem Pepwave Emagic
+      </small>
+
 
       <div class="row">
         
@@ -85,7 +90,7 @@
             <tr>
               <th>Jenis Devices</th>
               <th>MERK</th>
-              <th>SERVICE TAG</th>
+              <th>SERVICE TAG/SN</th>
               <th>QTY</th>
               <th>STATUS KEPEMILIKAN</th>
               <th>DELIVERY DATE</th>
@@ -135,7 +140,7 @@
               </td>
               <td>
                 
-                <input v-model="experience.qty" :name="`dataAsset[${index}][qty]`" type="number" class="form-control" required >
+                <input v-model="experience.qty" :name="`dataAsset[${index}][qty]`" type="text" class="form-control" required >
                 
               </td>
               <td>
@@ -154,12 +159,12 @@
               </td>
               <td>
                 
-                <input v-model="experience.delivery_date" :name="`dataAsset[${index}][delivery_date]`" type="text" class="form-control" placeholder="delivery_date">
+                <input v-model="experience.delivery_date" :name="`dataAsset[${index}][delivery_date]`" type="text" class="form-control">
                 
               </td>
               <td>
                 
-                <input v-model="experience.expired_date" :name="`dataAsset[${index}][expired_date]`" type="text" class="form-control" placeholder="expired_date">
+                <input v-model="experience.expired_date" :name="`dataAsset[${index}][expired_date]`" type="text" class="form-control">
                 
               </td>
               <td>
@@ -329,7 +334,7 @@ export default {
       })
        // alert(JSON.stringify(data, null, 2))
        alert("Data Sudah Sukses terinput ! Terima Kasih")
-         window.location.reload();
+         window.location.reload();  
 
     },
     getData(apiUrl) {
