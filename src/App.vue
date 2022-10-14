@@ -8,7 +8,7 @@
     <h1 align="CENTER">Asset Registration PT Pertamina Retail</h1>
   </div>
   <hr>
-  <form class="form-horizontal">
+  <form class="form-horizontal" ref="asset_form">
     
     <div class="work-experiences">
       <div class="row">
@@ -327,7 +327,10 @@ export default {
       axios.post('https://sheet.best/api/sheets/f7ac5551-002d-497e-89b8-9334334d7c54',data).then((res)=>{
         console.log(res)
       })
-      // alert(JSON.stringify(data, null, 2))
+       // alert(JSON.stringify(data, null, 2))
+       alert("Data Sudah Sukses terinput ! Terima Kasih")
+       this.$refs.form_asset.reset();
+
     },
     getData(apiUrl) {
             axios.get(apiUrl).then((res) => {
