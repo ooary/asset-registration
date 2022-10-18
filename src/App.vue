@@ -83,7 +83,6 @@
       </h3>
 
       <div class="row">
-        
       
         <div class="col-6 text-muted">
           <p>
@@ -283,6 +282,7 @@ export default {
   mounted(){
    // this.getData(this.base_uri)
    // this.wrangling(this.spbu_data)
+     
   },
 
   data: () => ({
@@ -335,6 +335,7 @@ export default {
     submit () {
       const today = new Date();
       const date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+      const unique_id = this.kode_spbu + this.unit_business + Math.floor(Math.random()*100)+1;
 
       const data = {
         data_asset: this.dataAsset,
@@ -344,7 +345,9 @@ export default {
         sam:this.sam,
         kode_spbu:this.kode_spbu,
         lokasi:this.lokasi,
-        submitted_date: date
+        submitted_date: date,
+        UNIQUE_ID : unique_id
+
         }
       // https://sheetdb.io/api/v1/cz16jbo7bahwt
       // https://sheet.best/api/sheets/f7ac5551-002d-497e-89b8-9334334d7c54
