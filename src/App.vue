@@ -276,6 +276,7 @@
 
 
 <script>
+const unique_id = 'ptpr_'+Math.floor(Math.random()*1000)+1
 import axios from "axios"
 export default {
   name: "App",
@@ -291,7 +292,6 @@ export default {
       {
         merk: "",
         device: "",
-        spbu:"",
         qty:"",
         service_tag:"",
         condition:"",
@@ -299,6 +299,8 @@ export default {
         keterangan:"",
         label_asset:"",
         status_kepemilikan:"",
+        keterangan:"",
+        unique_id:unique_id
 
       }
     ],
@@ -319,7 +321,6 @@ export default {
       this.dataAsset.push({
         merk: "",
         device: "",
-        spbu:"",
         qty:"",
         service_tag:"",
         condition:"",
@@ -327,6 +328,8 @@ export default {
         keterangan:"",
         label_asset:"",
         status_kepemilikan:"",
+        keterangan:"",
+        unique_id:unique_id
       })
     },
     removeExperience(index){
@@ -335,7 +338,7 @@ export default {
     submit () {
       const today = new Date();
       const date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
-      const unique_id = this.kode_spbu + this.unit_business + Math.floor(Math.random()*1000)+1;
+      
 
       const data = {
         data_asset: this.dataAsset,
@@ -346,7 +349,7 @@ export default {
         kode_spbu:this.kode_spbu,
         lokasi:this.lokasi,
         submitted_date: date,
-        UNIQUE_ID : unique_id
+        unique_id : unique_id
 
         }
       // https://sheetdb.io/api/v1/cz16jbo7bahwt
