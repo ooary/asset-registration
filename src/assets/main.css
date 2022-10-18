@@ -1,13 +1,19 @@
 @import "./base.css";
 
 #app {
-  /*max-width: 1920px;*/
+  max-width: 100%;
   margin: 0 auto;
   padding: 2rem;
 
   font-weight: normal;
 }
 
+th,option {
+  font-size:12px;
+}
+td {
+  font-size: 10px;
+}
 a,
 .green {
   text-decoration: none;

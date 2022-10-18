@@ -1,11 +1,14 @@
+
 <template>
+
 <div id="app" class="container-fluid">
+ 
   <div class="row">
     <center>
     <img align="center" src="@/assets/logo.png" >
     
     </center>
-    <h1 align="CENTER">Asset Registration PT Pertamina Retail</h1>
+    <h1 align="CENTER">IT Devices Registration PT Pertamina Retail</h1>
   </div>
   <hr>
   <form class="form-horizontal" ref="form_asset">
@@ -33,13 +36,15 @@
             Nama BUH
           </label>
           <input type="text" class="form-control" :name="name" v-model="name" required>
+          <small id="emailHelp" class="form-text text-muted">Nama BUH Huruf Besar semua. Contoh : SLAMED </small>
+
         </div>
         <div class="col-4">
           <label>
-            Kode SPBU
+            Kode Unit Business/SPBU
           </label>
           <input type="text" class="form-control" :name="kode_spbu" v-model="kode_spbu" required>
-          <small id="emailHelp" class="form-text text-muted">kode SPBU tanpa titik. Contoh : 3117105 </small>
+          <small id="emailHelp" class="form-text text-muted">Kode Unit Business/SPBU tanpa titik. Contoh : 3117105 </small>
         </div>
         <div class="col">
           <label>
@@ -47,7 +52,7 @@
           </label>
 
           <input type="text" class="form-control" :name="lokasi" v-model="lokasi" required>
-          <small id="emailHelp" class="form-text text-muted">Contoh : SPBU BOGOR JONGGOL </small>
+          <small id="emailHelp" class="form-text text-muted">Contoh Pengisian Lokasi : SPBU BOGOR JONGGOL </small>
 
         </div>
         <div class="col">
@@ -76,29 +81,42 @@
       <h3>
       Data IT Asset / Devices {{ unit_business }}
       </h3>
-      <small id="emailHelp" class="form-text text-muted"><strong> Format Pengisian</strong> <br>
 
-      <strong>Delivery Date dan Expired Date :</strong> Bulan - Tahun ( 05-2022 ) 
-      <br> <strong>Status Kepemilikan Managed Services : </strong> Secara Perangkat tidak sewa, Pelayanannya yang PTPR Sewa Contoh  : Modem Pepwave Emagic
-      </small>
-
+      <div class="row">
+        
+      
+        <div class="col-6 text-muted">
+          <p>
+            <strong>Delivery Date dan Expired Date : </strong> Bulan - Tahun ( 05-2022 ) 
+           <p> <strong> Status Kepemilikan Managed Services :</strong> Secara Perangkat tidak sewa, Hanya Saja Pelayanannya yang PTPR Sewa. Contoh  : Modem Pepwave Emagic</p>  
+          </p>
+        </div>
+        <div class="col-6 ">
+          <h5>Cara Pengisian</h5>
+          <p>
+            <a href="https://bit.ly/Cara_pengisian_form" target="_blank">Link Cara Pengisian</a>
+            
+          </p>
+        </div>  
+        </div>
 
       <div class="row">
         
         <table class="table table-bordered table-responsive table-striped table-highlight">
           <thead>
             <tr>
-              <th>Jenis Devices</th>
+              <th><i style="color:red">*</i> Jenis Devices</th>
               <th>MERK</th>
               <th>SERVICE TAG/SN</th>
-              <th>QTY</th>
+              <th><i style="color:red">*</i> QTY</th>
               <th>STATUS KEPEMILIKAN</th>
               <th>DELIVERY DATE</th>
               <th>EXPIRED DATE</th>
-              <th>CONDITION</th>
-              <th>DIGUNAKAN/TIDAK</th>
-              <th>LABEL ASSET</th>
+              <th><i style="color:red">*</i> CONDITION</th>
+              <th><i style="color:red">*</i> DIGUNAKAN/TIDAK</th>
+              <th><i style="color:red">*</i> LABEL ASSET</th>
               <th>KETERANGAN</th>
+              <th>Action</th>
             </tr>
           </thead>
           
@@ -216,8 +234,10 @@
     </div>
     
     <div class="row">
+      <p style="text-align:right"><i><strong>Tanda <i style="color:red">*</i> Wajib di isi</strong></i> </p> 
+
       <div class="form-group">
-        <button @click="addExperience" type="button" class="btn btn-small btn-success">Add Device<i class="bi bi-plus"></i></button>
+       <p style="text-align:right"> <button @click="addExperience" type="button" class="btn btn-small btn-success">Add Device<i class="bi bi-file-earmark-plus"></i></button></p>
       </div>
     </div>
     <hr>
@@ -247,7 +267,7 @@
     
     <div class="row">
       <div class="form-group">
-        <button @click="submit" type="button" class="btn btn-primary">Submit</button>
+       <center> <button @click="submit" type="button" class="btn col-12 btn-block btn-lg btn-primary">Submit</button></center>
       </div>
     </div>
   </form>
