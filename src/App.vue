@@ -22,13 +22,13 @@
 
           <select v-model="unit_business" class="form-select" required>
             <option disabled value="">Please select one</option>
-            <option >SPBU</option>
-            <option >SPKLU</option>
-            <option>SPBKLU</option>
-            <option>Bright Store</option>
-            <option>Bright Cafe</option>
-            <option>DC LPG</option>
-            <option>Head Office</option>
+            <option value="spbu">SPBU</option>
+            <option value="spklu">SPKLU</option>
+            <option value="spbklu">SPBKLU</option>
+            <option value="bright_store">Bright Store</option>
+            <option value="bright_cafe">Bright Cafe</option>
+            <option value="dc_lpg">DC LPG</option>
+            <option value="head_office">Head Office</option>
           </select>
         </div>
         <div class="col-4">
@@ -69,11 +69,11 @@
           </label>
           <select v-model="sam" class="form-select">
             <option disabled value="">Please select one</option>
-            <option>SAM 1</option>
-            <option>SAM 2</option>
-            <option>SAM 3</option>
-            <option>SAM 4</option>
-            <option>SAM 5</option>
+            <option value="SAM_1">SAM 1</option>
+            <option value="SAM_2">SAM 2</option>
+            <option value="SAM_3">SAM 3</option>
+            <option value="SAM_4">SAM 4</option>
+            <option value="SAM_5">SAM 5</option>
           </select>
         </div>
       </div>
@@ -335,7 +335,7 @@ export default {
     submit () {
       const today = new Date();
       const date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
-      const unique_id = this.kode_spbu + this.unit_business + Math.floor(Math.random()*100)+1;
+      const unique_id = this.kode_spbu + this.unit_business + Math.floor(Math.random()*1000)+1;
 
       const data = {
         data_asset: this.dataAsset,
