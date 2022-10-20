@@ -11,6 +11,9 @@
     <h1 align="CENTER">IT Devices Registration PT Pertamina Retail</h1>
   </div>
   <hr>
+
+
+
   <form class="form-horizontal" ref="form_asset">
     
     <div class="work-experiences">
@@ -304,6 +307,7 @@ export default {
 
       }
     ],
+    errors:[],
     name:"",
     ownership: [
       { value:"sewa",text:"sewa" },
@@ -336,6 +340,53 @@ export default {
       this.dataAsset.splice(index,1);
     },
     submit () {
+        this.errors=[];
+         if (!this.unit_business) {
+          this.errors.push('Unit Bisnis Harus di isi');
+          return alert(this.errors)
+        }
+        if (!this.name) {
+          this.errors.push('Nama BUH Harus di isi');
+          return alert(this.errors)
+        }
+       
+        if (!this.alamat) {
+          this.errors.push('Alamat Harus di isi');
+          return  alert(this.errors)
+        }
+        if (!this.sam) {
+          this.errors.push('Sam Harus di isi');
+          return  alert(this.errors)
+        }
+        if (!this.kode_spbu) {
+          this.errors.push('Kode SPBU Harus di isi');
+          return  alert(this.errors)
+        }
+        // console.log(this.dataAsset[])
+        // if (!this.dataAsset[0]) {
+        //   this.errors.push('Jenis Device Harus di isi');
+        //   return  alert(this.errors)
+        // }
+        // if (!this.dataAsset[3]) {
+        //   this.errors.push('Quantity Harus di isi');
+        //   return  alert(this.errors)
+        // }
+        // if (!this.condition) {
+        //   this.errors.push('Kondisi Harus di isi');
+        //   return  alert(this.errors)
+        // }
+        // if (!this.utilize) {
+        //   this.errors.push('Digunakan/Tidak Harus di isi');
+        //   return  alert(this.errors)
+        // }
+        // if (!this.label_asset) {
+        //   this.errors.push('Label Harus di isi');
+        //   return  alert(this.errors)
+        // }
+
+
+       
+
       const today = new Date();
       const date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
       
