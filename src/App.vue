@@ -96,7 +96,7 @@
         <div class="col-6 ">
           <h5>Cara Pengisian</h5>
           <p>
-            <a href="https://bit.ly/Cara_pengisian_form" target="_blank">Link Cara Pengisian</a>
+           <h4> <strong> <a href="https://bit.ly/Cara_pengisian_form" target="_blank">Link Cara Pengisian</a></strong></h4>
             
           </p>
         </div>  
@@ -142,6 +142,7 @@
                     <option>CCTV</option>
                     <option>MODEM</option>
                     <option>ROUTER</option>
+                    <option>SCANNER</option>
                     <option>LAINNYA</option>
                   </select>
                 </div>
@@ -391,7 +392,7 @@ export default {
       const date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
       
 
-      const data = {
+      const data_x = {
         data_asset: this.dataAsset,
         nama_buh: this.name,
         unit_business:this.unit_business,
@@ -404,10 +405,25 @@ export default {
 
         }
       // https://sheetdb.io/api/v1/cz16jbo7bahwt
-      // https://sheet.best/api/sheets/f7ac5551-002d-497e-89b8-9334334d7c54
-      
-      axios.post('https://sheet.best/api/sheets/f7ac5551-002d-497e-89b8-9334334d7c54',data).then((res)=>{
+      // https://sheet.best/api/sheets/f7ac5551-002d-497e-89b8-9334334d7c54 > Expired
+      // https://sheet.best/api/sheets/71faa9b4-940e-479c-8c09-29ba0b768196
+      // https://sheetdb.io/api/v1/cdzdyqt2zlamw > Fresh API
+      axios.post('https://sheetdb.io/api/v1/cz16jbo7bahwt',{sheet:'data_asset', data: [{
+        "data_asset": this.dataAsset,
+        "nama_buh": this.name,
+        "unit_business": this.unit_business,
+        "alamat": this.alamat,
+        "sam": this.sam,
+        "kode_spbu": this.kode_spbu,
+        "lokasi": this.lokasi,
+        "submitted_date": date,
+        "unique_id" : unique_id
+        } ]
+      }).then((res)=>{
         console.log(res)
+      }).catch(errors=>{
+        console.log(errors.response)
+        alert(JSON.stringify(errors.response))
       })
        // alert(JSON.stringify(data, null, 2))
        alert("Data Sudah Sukses terinput ! Terima Kasih")
