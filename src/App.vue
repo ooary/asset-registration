@@ -1,8 +1,16 @@
+<script setup>
+import Navbar from './components/Navbar.vue'
+
+</script>
+
 
 <template>
 
+
+       <!-- <Navbar> </Navbar> -->
+
 <div id="app" class="container-fluid">
- 
+   <!-- <iframe width="1280" height="600" src="https://datastudio.google.com/embed/reporting/f8dfeb0d-a78a-412a-b71f-82e5f7d45bb0/page/zTs5C" frameborder="0" style="border:0" allowfullscreen></iframe>  -->
   <div class="row">
     <center>
     <img align="center" src="@/assets/logo.png" >
@@ -26,6 +34,7 @@
           <select v-model="unit_business" class="form-select" required>
             <option disabled value="">Please select one</option>
             <option value="spbu">SPBU</option>
+            <option value="spbu">SPBG</option>
             <option value="spklu">SPKLU</option>
             <option value="spbklu">SPBKLU</option>
             <option value="bright_store">Bright Store</option>
@@ -274,6 +283,8 @@
       </div>
     </div>
   </form>
+
+
 </div>
 </template>
 
