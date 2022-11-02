@@ -132,14 +132,14 @@
             Merk
           </label>
           <input type="text" class="form-control" :name="`dataAsset[${key}][merk]`" v-model="value.merk" required>
-          <small id="emailHelp" class="form-text text-muted"> </small>
+          <small id="emailHelp" class="form-text text-muted">Contoh : DELL </small>
           </div>
           <div class="col-md-2">
             <label>
             Service Tag/SN
           </label>
           <input type="text" class="form-control" v-model="value.service_tag" :name="`dataAsset[${key}][service_tag]`" required>
-          <small id="emailHelp" class="form-text text-muted"></small>
+          <small id="emailHelp" class="form-text text-muted">Contoh : FXRF862</small>
           </div>
           <div class="col-md-1">
             <label>
@@ -389,9 +389,6 @@ export default {
         //   this.errors.push('Label Harus di isi');
         //   return  alert(this.errors)
         // }
-
-
-       
 
       const today = new Date();
       const date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
