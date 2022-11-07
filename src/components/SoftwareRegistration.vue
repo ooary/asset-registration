@@ -270,8 +270,9 @@ export default {
       axios.post('https://sheetdb.io/api/v1/eplyi1wyjkkv9',{sheet:'data_software', data: [{
         "data_software": this.dataAsset,
         "nama_pegawai": this.name,
-        "nip": this.unit_business,
-        "area": this.sam,
+        "nip": this.nip,
+        "fungsi": this.fungsi,
+        "area": this.area,
         "submitted_date": date,
         "unique_id" : unique_id
         } ]
