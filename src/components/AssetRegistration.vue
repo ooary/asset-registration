@@ -232,14 +232,6 @@
       </div>
     </div>
 
-
-
-
-
-
-
-
-
     
     <div class="row">
       <p style="text-align:right"><i><strong>Tanda <i style="color:red">*</i> Wajib di isi</strong></i> </p> 

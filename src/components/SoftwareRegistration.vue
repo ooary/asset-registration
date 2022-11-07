@@ -5,7 +5,7 @@
     <img align="center" src="@/assets/logo.png" >
     
     </center>
-    <h1 align="CENTER">Software Registration PT Pertamina Retail</h1>
+    <h1 align="CENTER">Software Request PT Pertamina Retail</h1>
   </div>
   <hr>
 
@@ -15,44 +15,33 @@
       <div class="row">
         <div class="row">
        
-        <div class="col-4">
+        <div class="col-md-4">
           <label>
             Nama Pegawai 
           </label>
           <input type="text" class="form-control" :name="name" v-model="name" required>
           <!-- <small id="emailHelp" class="form-text text-muted">Nama BUH Huruf Besar semua. Contoh : SLAMED </small> -->
         </div>
-        <div class="col-4">
+        <div class="col-md-4">
           <label>
             NIP (Nomer Induk Pegawai)
           </label>
-          <input type="text" class="form-control" :name="kode_spbu" v-model="kode_spbu" required>
+          <input type="text" class="form-control" :name="nip" v-model="nip" required>
           <small id="emailHelp" class="form-text text-muted">Silahkan Di input No induk pegawai </small>
         </div>
-        </div>
-        
-      <div class="row">
-         <div class="col">
-          <label>
-            Service Tag / Serial Number Devices
-          </label>
-          <input type="text" class="form-control" :name="lokasi" v-model="lokasi" required>
-          <small id="emailHelp" class="form-text text-muted">Contoh : 3HDXKY </small>
-
-        </div>
-        <div class="col">
+         <div class="col-md-4">
           <label>
             Fungsi
           </label>
-          <input type="text" class="form-control" :name="alamat" v-model="alamat" required>
+          <input type="text" class="form-control" :name="fungsi" v-model="fungsi" required>
           <small id="emailHelp" class="form-text text-muted">Contoh : ICT/PAM/BPD/HR/SAM</small>
 
         </div>
-        <div class="col">
+        <div class="col-md-4">
           <label>
             Area
           </label>
-          <select v-model="sam" class="form-select">
+          <select v-model="area" class="form-select">
             <option disabled value="">Please select one</option>
             <option value="HEAD_OFFICE">HEAD OFFICE</option>
             <option value="SAM_1">SAM 1</option>
@@ -62,7 +51,9 @@
             <option value="SAM_5">SAM 5</option>
           </select>
         </div>
-      </div>
+        </div>
+        
+     
        
       </div>
       <hr>
@@ -73,18 +64,18 @@
       <div class="row">
       
 
-        <div class="col-6 ">
+       <!--  <div class="col-6 ">
           <h5>Cara Pengisian</h5>
           <p>
            <h4> <strong> <a href="https://bit.ly/Cara_pengisian_form" target="_blank">Link Cara Pengisian</a></strong></h4>
             
           </p>
-        </div>  
+        </div>   -->
         </div>
 
       <div class="row" v-for="(value,key) in dataAsset" :key="key">
 
-              <div class="col-4">
+              <div class="col-md-4">
                 <label>
                   Nama Software
                 </label>
@@ -93,19 +84,38 @@
                   <option value="teamviewer">Team Viewer</option>
                   <option value="thinkcell">Think Cell</option>
                   <option value="office_365">Office 365</option>
-                  <option value="adobe">Adobe</option>
+                  <option value="adobe_photoshop">Adobe Photoshop</option>
+                  <option value="adobe_illustrator">Adobe Illustrator</option>
+                  <option value="adobe_after_effect">Adobe After Effect</option>
+                  <option value="adobe_light_room">Adobe Lightroom</option>
+                  <option value="sketchup">Sketchup</option>
+                  <option value="msproject">MS Project</option>
+                  <option value="corel_draw">Corel Draw</option>
+                  <option value="Kapersky">Kapersky</option>
+                  <option value="foxit">Foxit</option>
+                  <option value="autocad">Autocad</option>
+                  <option value="lainnya">Lainnya</option>
+
                   </select>
               </div>
-              <div class="col-4">
+               <div class="col-md-4">
+              <label>
+                Detail Keterangan
+              </label>
+              <input :name="`dataAsset[${key}][keterangan]`" v-model="value.keterangan" type="text" class="form-control" placeholder="">
+               <small id="emailHelp" class="form-text text-muted">Tujuan</small>
+           </div>
+
+            <!--   <div class="col-4">
                 <label>
                   Tanggal Expired
                 </label>
                 <input type="text" class="form-control" :name="`dataAsset[${key}][expired_date]`" v-model="value.expired_date" required>
                <small id="emailHelp" class="form-text text-muted">Format YYYY-MM-DD, Contoh Pengisian : 2022-05-10 </small>
 
-              </div>
-              <div class="col-4">
-                <label>Action</label><br>
+              </div> -->
+              <div class="col-md-4">
+                <label>Delete</label><br>
                  <button @click="removeExperience(key)" type="button" class="btn btn-danger btn-sm"><i class="bi bi-trash"></i></button>
               </div>
       </div>
@@ -115,7 +125,7 @@
       <p style="text-align:right"><i><strong>Tanda <i style="color:red">*</i> Wajib di isi</strong></i> </p> 
 
       <div class="form-group">
-       <p style="text-align:right"> <button @click="addExperience" type="button" class="btn btn-small btn-success">Add Device<i class="bi bi-file-earmark-plus"></i></button></p>
+       <p style="text-align:right"> <button @click="addExperience" type="button" class="btn btn-small btn-success">Add Software<i class="bi bi-file-earmark-plus"></i></button></p>
       </div>
     </div>
     <hr>
@@ -163,26 +173,18 @@ export default {
    // this.wrangling(this.spbu_data)
      
   },
-
   data: () => ({
     spbu_data:[],
     dataAsset: [
       {
         software: "",
-        expired_date: "",
-
-        
+        // expired_date: "",
+        keterangan:"",
         unique_id:unique_id
-
       }
     ],
     errors:[],
     name:"",
-    ownership: [
-      { value:"sewa",text:"sewa" },
-      { value:"asset",text:"Asset" },
-      { value:"Manage_services",text:"Manage Services" }
-    ],
     base_uri: 'https://sheets.googleapis.com/v4/spreadsheets/1pzT1k6Or9mBTLC8-X5DkgfBEv2C1h_IP19v6n-sXwTQ/values:batchGet?ranges=A1%3AF100&valueRenderOption=FORMATTED_VALUE&key=AIzaSyBesotaNgSaTUIhrSKjEaExdi-ksKInhoE',
     spreadsheetId:'1pzT1k6Or9mBTLC8-X5DkgfBEv2C1h_IP19v6n-sXwTQ',
     API_KEY:'AIzaSyBesotaNgSaTUIhrSKjEaExdi-ksKInhoE',
@@ -192,15 +194,7 @@ export default {
   methods: {
     addExperience () {
       this.dataAsset.push({
-        merk: "",
-        device: "",
-        qty:"",
-        service_tag:"",
-        condition:"",
-        utilize:"",
-        keterangan:"",
-        label_asset:"",
-        status_kepemilikan:"",
+        software:"",
         keterangan:"",
         unique_id:unique_id
       })
@@ -210,25 +204,22 @@ export default {
     },
     submit () {
         this.errors=[];
-         if (!this.unit_business) {
-          this.errors.push('Unit Bisnis Harus di isi');
-          return alert(this.errors)
-        }
+        
         if (!this.name) {
-          this.errors.push('Nama BUH Harus di isi');
+          this.errors.push('Nama Harus di isi');
           return alert(this.errors)
         }
        
-        if (!this.alamat) {
-          this.errors.push('Alamat Harus di isi');
+        if (!this.nip) {
+          this.errors.push('NIP Harus di isi');
           return  alert(this.errors)
         }
-        if (!this.sam) {
-          this.errors.push('Sam Harus di isi');
+        if (!this.fungsi) {
+          this.errors.push('Fungsi Harus di isi');
           return  alert(this.errors)
         }
-        if (!this.kode_spbu) {
-          this.errors.push('Kode SPBU Harus di isi');
+        if (!this.area) {
+          this.errors.push('Area Harus di isi');
           return  alert(this.errors)
         }
         // console.log(this.dataAsset[])
@@ -276,14 +267,11 @@ export default {
       // https://sheet.best/api/sheets/f7ac5551-002d-497e-89b8-9334334d7c54 > Expired
       // https://sheet.best/api/sheets/71faa9b4-940e-479c-8c09-29ba0b768196
       // https://sheetdb.io/api/v1/cdzdyqt2zlamw > Fresh API
-      axios.post('https://sheetdb.io/api/v1/cz16jbo7bahwt',{sheet:'data_asset', data: [{
-        "data_asset": this.dataAsset,
-        "nama_buh": this.name,
-        "unit_business": this.unit_business,
-        "alamat": this.alamat,
-        "sam": this.sam,
-        "kode_spbu": this.kode_spbu,
-        "lokasi": this.lokasi,
+      axios.post('https://sheetdb.io/api/v1/eplyi1wyjkkv9',{sheet:'data_software', data: [{
+        "data_software": this.dataAsset,
+        "nama_pegawai": this.name,
+        "nip": this.unit_business,
+        "area": this.sam,
         "submitted_date": date,
         "unique_id" : unique_id
         } ]
