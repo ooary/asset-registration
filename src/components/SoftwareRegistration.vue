@@ -284,7 +284,8 @@ export default {
       })
        // alert(JSON.stringify(data, null, 2))
        alert("Data Sudah Sukses terinput ! Terima Kasih")
-       location.reload();  
+       this.$router.go()
+       // location.reload();  
 
     },
     getData(apiUrl) {

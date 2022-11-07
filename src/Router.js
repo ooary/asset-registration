@@ -26,7 +26,9 @@ const routes = [
 //create router
 const router = createRouter({
     history: createWebHistory(),
-    routes  // config routes
+    mode:'history',
+
+    routes  // config routesm
 })
 
 
