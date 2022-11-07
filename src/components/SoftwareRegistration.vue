@@ -278,13 +278,24 @@ export default {
         } ]
       }).then((res)=>{
         console.log(res)
+
       }).catch(errors=>{
         console.log(errors.response)
         alert(JSON.stringify(errors.response))
       })
        // alert(JSON.stringify(data, null, 2))
+         this.dataAsset =   [{
+                 software: "",
+                 // expired_date: "",
+                 keterangan:"",
+                   unique_id:unique_id
+                 }],
+        this.name = "",
+        this.nip = "",
+        this.fungsi ="",
+        this.area = "",
        alert("Data Sudah Sukses terinput ! Terima Kasih")
-       this.$router.go()
+        this.$router.push("/software");
        // location.reload();  
 
     },
