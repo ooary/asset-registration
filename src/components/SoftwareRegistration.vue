@@ -284,7 +284,7 @@ export default {
       })
        // alert(JSON.stringify(data, null, 2))
        alert("Data Sudah Sukses terinput ! Terima Kasih")
-         window.location.reload();  
+       location.reload();  
 
     },
     getData(apiUrl) {
