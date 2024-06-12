@@ -23,6 +23,7 @@
                 <select v-model="unit_business" class="form-select" required>
                     <option disabled value="">Please select one</option>
                     <option value="spbu">SPBU</option>
+                    <option value="spbut">SPBUT</option>
                     <option value="spbg">SPBG</option>
                     <option value="spklu">SPKLU</option>
                     <option value="spbklu">SPBKLU</option>
